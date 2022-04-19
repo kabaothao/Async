@@ -33,9 +33,37 @@ programming execution has to wait until
 the function returns before it continues execution to the next line.
 
 
-* When a function is called, program execution continues to th enext line, without waiting for the function to complete.
+* When a function is called, program execution continues to the next line, without waiting for the function to complete.
 * Asynchronous programming model improves responsiveness of your application.
-*
+* Real world experiences: Windows Media Player, Web Browser
+
+
+When to use asynchronous?
+    * Accessing the Web
+    * Working with files and databases
+    * Working with images
+    * So how do we do that in C#?
+
+
+
+
+We had 2 approaches 
+    * 1. mulitthreading
+    * callback methods
+
+    * Microsoft introduced a new asynchronous programming model,
+
+    which is called Task-based Asynchronous Model.
+
+    And we achieved that by using async and await keywords.
+
+    And that's the topic of this lecture.
+
+
 *
  
+
+
+
+
  */
