@@ -9,7 +9,16 @@ namespace Async // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Calculate();
+            Console.Read();
+        }
+
+        static void Calculate() 
+        {
+            Calculate1();
+            Calculate2();
+            Calculate3();
+
         }
     }
 }
