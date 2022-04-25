@@ -32,15 +32,13 @@ namespace Async // Note: actual namespace depends on the project name.
 
             var awaiter1 = task1.GetAwaiter();
             var awaiter2 = task1.GetAwaiter();
+
+
             var result1 = awaiter1.GetResult();
             var result2 = awaiter2.GetResult();
 
             Calculate3(result1, result2);
 
-            //Task.Run(() =>
-            //{
-            //    Calculate3();
-            //});
 
 
    
