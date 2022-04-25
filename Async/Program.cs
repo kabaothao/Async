@@ -16,25 +16,31 @@ namespace Async // Note: actual namespace depends on the project name.
 
 
 
-
-
-
         static void Calculate() 
         {
-            Task.Run(() =>
+            var task1 = Task.Run(() =>
             {
                 Calculate1();
             });
 
-            Task.Run(() =>
+            var task2 = Task.Run(() =>
             {
                 Calculate2();
             });
 
-            Task.Run(() =>
-            {
-                Calculate3();
-            });
+            Task.WaitAll(task1, task2);
+
+            var awaiter1 = task1.GetAwaiter();
+            var awaiter2 = task1.GetAwaiter();
+            var result1 = awaiter1.GetResult();
+            var result2 = awaiter2.GetResult();
+
+            Calculate3(result1, result2);
+
+            //Task.Run(() =>
+            //{
+            //    Calculate3();
+            //});
 
 
    
@@ -57,11 +63,11 @@ namespace Async // Note: actual namespace depends on the project name.
 
         }
 
-        static int Calculate3()
+        static int Calculate3(int result1, int result2 )
         {
             Thread.Sleep(3000);
             Console.WriteLine("Calculating result3");
-            return 300;
+            return result1 + result2;
 
         }
     }
