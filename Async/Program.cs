@@ -13,16 +13,37 @@ namespace Async // Note: actual namespace depends on the project name.
             Console.Read();
         }
 
+
+
+
+
+
+
         static void Calculate() 
         {
-            Calculate1();
-            Calculate2();
-            Calculate3();
+            Task.Run(() =>
+            {
+                Calculate1();
+            });
+
+            Task.Run(() =>
+            {
+                Calculate2();
+            });
+
+            Task.Run(() =>
+            {
+                Calculate3();
+            });
+
+
+   
 
         }
 
         static int Calculate1()
-        {
+        {   
+           
             Thread.Sleep(3000);
             Console.WriteLine("Calculating result1");
             return 100;
